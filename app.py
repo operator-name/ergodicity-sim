@@ -20,15 +20,14 @@ def simulate(starting_wealth, players, rounds):
     return wallets
 
 
-STARTING_WEALTH = 100.0
-PLAYERS = 10000
-ROUNDS = 1
+starting_wealth = 100.0
+players = 10000
+rounds = 1
+expected_1 = 0.5 * (starting_wealth * WIN + starting_wealth * LOSE)
 
-
-wallets = simulate(STARTING_WEALTH, PLAYERS, ROUNDS)
+wallets = simulate(starting_wealth, players, rounds)
 average = mean(wallets)
 
-# lim PLAYERS -> inf,
-# mean(wallets) -> 0.5 * (STARTING_WEALTH * WIN + STARTING_WEALTH * LOSE)
-print(f"mean(simulate({STARTING_WEALTH}, {PLAYERS}, {ROUNDS})) = {average}")
-# mean(simulate(100.0, 10000, 1)) = 104.64
+print("lim players -> inf")
+print(f"expected -> {expected_1}")
+print(f"mean(simulate({starting_wealth}, {players}, {rounds})) = {average}")
